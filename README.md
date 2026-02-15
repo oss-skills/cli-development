@@ -1,54 +1,38 @@
 # cli-development
 
-A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code/skills) for building production-grade Go CLI tools that wrap REST APIs.
-
-Distilled from real-world patterns building API wrapper CLIs. Covers architecture, auth flows, output formatting, agent-friendly design, and extensibility.
+A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code/skills) for building Go CLI tools that wrap REST APIs.
 
 ## Why
 
-Old enterprise software with REST APIs deserves good CLIs. Good CLIs make agentic development possible. This skill teaches your AI coding assistant the patterns that make CLIs production-ready — not tutorial code, but battle-tested architecture.
+Most enterprise software has a REST API but no CLI. That means no scripting, no piping, no automation, no agents. This skill teaches Claude Code how to build the CLI so you don't have to explain the architecture every time.
 
-## What's Inside
+Covers project layout, Kong commands, OAuth2 with keyring, output formatting (rich/plain/JSON), agent-friendly flags, and how to add new API services without touching existing code.
 
-- **Architecture** — Kong struct-tag commands, layered `internal/` packages, desire paths
-- **Auth** — OAuth2 flows, keyring storage (with file fallback for WSL/containers), multi-account support
-- **Output** — Three modes (rich/plain/JSON), stdout/stderr separation, `NO_COLOR` support
-- **Agent-friendly design** — Stable exit codes, `--json`, `--results-only`, schema introspection, command allowlisting
-- **Live API testing** — Probe-first workflow for APIs whose docs lie about response shapes
-- **Extensibility** — Adding new services is mechanical, not inventive
+Based on patterns from [gogcli](https://github.com/steipete/gogcli) by [Peter Steinberger](https://github.com/steipete).
 
 ## Install
 
 ```bash
-# Add to your project
 npx skills add oss-skills/cli-development
+```
 
-# Or copy manually
+Or copy manually:
+```bash
 cp -r . ~/.claude/skills/cli-development/
 ```
 
-## Usage
+## What's in here
 
-Once installed, Claude Code automatically activates this skill when you:
-- Ask to build a CLI tool
-- Design command hierarchies
-- Implement OAuth2 flows for CLI tools
-- Mention "CLI architecture" or "API wrapper CLI"
-
-## Structure
+The skill activates when you ask Claude Code to build a CLI, design commands, or implement OAuth2 for a CLI tool.
 
 ```
-SKILL.md                          # Main skill instructions
+SKILL.md                          # Main instructions
 references/
-  kong-patterns.md                # Kong command struct patterns
-  auth-patterns.md                # OAuth2 + keyring implementation
-  agent-design.md                 # Agent/automation-friendly features
+  kong-patterns.md                # Command struct patterns
+  auth-patterns.md                # OAuth2 + keyring
+  agent-design.md                 # Stable exit codes, --json, schema introspection
   extensibility.md                # Adding new API services
 ```
-
-## Credits
-
-Patterns distilled from [gogcli](https://github.com/steipete/gogcli) by [Peter Steinberger](https://github.com/steipete).
 
 ## License
 
