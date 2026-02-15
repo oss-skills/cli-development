@@ -21,7 +21,7 @@ Old enterprise software with REST APIs deserves good CLIs. Good CLIs make agenti
 
 ```bash
 # Add to your project
-npx skills add SeMmyT/cli-development
+npx skills add oss-skills/cli-development
 
 # Or copy manually
 cp -r . ~/.claude/skills/cli-development/
